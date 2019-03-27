@@ -21,6 +21,7 @@ services:
       - DB_EXTENSION=pg_trgm
   gitlab:
     image: sameersbn/gitlab:10.3.3
+    container_name: gitlab
     ports:
       - "10080:10080"
     hostname: "hxf.gitlab.top"

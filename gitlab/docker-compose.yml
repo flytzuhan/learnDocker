@@ -39,6 +39,9 @@ services:
         gitlab_rails['smtp_enable_starttls_auto'] = true
         gitlab_rails['smtp_tls'] = true
         gitlab_rails['gitlab_email_from'] = '18516772079@163.com'
+    depends_on:
+      - redis
+      - postgresql
     volumes:
       - /application/services/gitlab/config:/etc/gitlab
       - /application/services/gitlab/data:/var/opt/gitlab

@@ -21,7 +21,7 @@ services:
       - DB_EXTENSION=pg_trgm
   gitlab:
     image: sameersbn/gitlab:10.3.3
-    container_name: gitlab
+    container_name: gitlab/gitlab-ce
     ports:
       - "10080:10080"
     hostname: "hxf.gitlab.top"
@@ -30,15 +30,6 @@ services:
       GITLAB_OMNIBUS_CONFIG: |
         external_url 'http://hxf.gitlab.top:10080'
         gitlab_rails['time_zone'] = 'Asia/Shanghai'
-        gitlab_rails['smtp_enable'] = true
-        gitlab_rails['smtp_address'] = "smtp.163.com"
-        gitlab_rails['smtp_port'] = 465
-        gitlab_rails['smtp_user_name'] = "18516772079@163.com"
-        gitlab_rails['smtp_password'] = "hxf369wwfae123"
-        gitlab_rails['smtp_authentication'] = "login"
-        gitlab_rails['smtp_enable_starttls_auto'] = true
-        gitlab_rails['smtp_tls'] = true
-        gitlab_rails['gitlab_email_from'] = '18516772079@163.com'
     depends_on:
       - redis
       - postgresql
